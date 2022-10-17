@@ -1,37 +1,43 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Becas.service;
 using Becas.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Becas.Controllers
 {
+    [Route("[Controller]")]
+    [ApiController]
     
-    [Route("[controller]")]
-     [ApiController]
-    public class AlumnoController: Controller
-     {
+
+    public class AlumnoController: ControllerBase
+    {
         private readonly ApplicationDbContext context;
+
         public AlumnoController(ApplicationDbContext context)
         {
             this.context = context;
         }
 
- [HttpGet]
-        public ActionResult<List<Alumno>> GetAll() => AlumnoService.GetAll();
+        [HttpGet]
+        public async Task<ActionResult<List<Alumno>>> Get(){
+            return await context.Alumnos.ToListAsync();
+        }
 
         [HttpGet("{Id}")]
-        public ActionResult<Alumno> Get (int id)
+        public async Task<ActionResult> Get(int Id, Alumno alumno)
         {
-            var Alumno = AlumnoService.Get(id);
-            if(Alumno == null)
-            
+            var alumnoExiste = await AlumnoExiste(Id);
+            if (!alumnoExiste)
+            {
                 return NotFound();
-
-                return Alumno;   
+            }
+            context.Update(alumno);
+            await context.SaveChangesAsync();
+            return NoContent();
         }
+
+
 
         [HttpPost]
         public async Task<ActionResult> Post(Alumno alumno){
@@ -39,39 +45,42 @@ namespace Becas.Controllers
             await context.SaveChangesAsync();
             return Ok();
         }
+        
 
+        [HttpPut("{Id}")]
+        public async Task<ActionResult> Put(int Id, Alumno alumno)
+        {
+            var alumnoExiste = await AlumnoExiste(Id);
+            if (!alumnoExiste)
+            {
+                return NotFound();
+            }
 
-        [HttpDelete("{Id:int}")]
+            context.Update(alumno);
+            await context.SaveChangesAsync();
+            return NoContent();
+        }
+
+        [HttpDelete("{Id}")]
         public async Task<ActionResult> Delete(int Id)
         {
             var alumnoExiste = await AlumnoExiste(Id);
             if (!alumnoExiste)
             {
-             return NotFound();
+                return NotFound();
             }
-             context.Remove(new Alumno() { Id = Id});
-             await context.SaveChangesAsync();
-             return NotFound();
+
+            context.Remove(new Alumno() { Id = Id});
+            await context.SaveChangesAsync();
+            return NotFound();
         }
         private async Task<bool> AlumnoExiste(int Id)
         {
-            return await context.Alumnos.AnyAsync(p => p.Id ==Id);
+            return await context.Alumnos.AnyAsync(p => p.Id == Id);
         }
-     
+        
 
-        [HttpPut("Id")]
-        public async Task<ActionResult> put (int Id, Alumno alumno)
-        {
-            var alumnoExiste = await AlumnoExiste(Id);
-            if (!alumnoExiste)
-            {
 
-                return NotFound();
-            }
-            context.Update(alumno);
-            await context.SaveChangesAsync();
-            return NoContent();
-        }
     }
+
 }
-       

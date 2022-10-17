@@ -1,9 +1,10 @@
-using System.Threading.Tasks;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Becas.Models;
-using Becas.service;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Becas.service
 {
@@ -20,7 +21,7 @@ namespace Becas.service
             };
         }
 
-       private ActionResult<List<Alumno>> GetAll()
+        public ActionResult<List<Alumno>> GetAll()
         {
             throw new NotImplementedException();
         }

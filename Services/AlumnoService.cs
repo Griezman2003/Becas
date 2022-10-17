@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Becas.Models;
 
 
-namespace Becas.Services
+namespace Becas.service
 {
     public class AlumnoService
     {

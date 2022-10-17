@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Becas.Services;
+using Becas.service;
 using Becas.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +23,6 @@ namespace Becas.Controllers
         public ActionResult<List<Alumno>> GetAll() => AlumnoService.GetAll();
 
         [HttpGet("{Id}")]
-
         public ActionResult<Alumno> Get (int id)
         {
             var Alumno = AlumnoService.Get(id);

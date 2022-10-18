@@ -23,18 +23,16 @@ namespace Becas.Controllers
         public async Task<ActionResult<List<Alumno>>> Get(){
             return await context.Alumnos.ToListAsync();
         }
-
-        [HttpGet("{Id}")]
+        
+          [HttpGet("{Id}")]
         public async Task<ActionResult> Get(int Id, Alumno alumno)
         {
-            var alumnoExiste = await AlumnoExiste(Id);
-            if (!alumnoExiste)
-            {
+            var Alumno = AlumnoService.Get(id);
+            if(Alumno == null)
+            
                 return NotFound();
-            }
-            context.Update(alumno);
-            await context.SaveChangesAsync();
-            return NoContent();
+
+                return Alumno;        
         }
 
 

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Becas\\Becas\\Becas.csproj": {}
+    "C:\\cmder\\Becas\\Becas.csproj": {}
   },
   "projects": {
-    "C:\\Becas\\Becas\\Becas.csproj": {
+    "C:\\cmder\\Becas\\Becas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Becas\\Becas\\Becas.csproj",
+        "projectUniqueName": "C:\\cmder\\Becas\\Becas.csproj",
         "projectName": "Becas",
-        "projectPath": "C:\\Becas\\Becas\\Becas.csproj",
-        "packagesPath": "C:\\Users\\Gamaliel Garcia\\.nuget\\packages\\",
-        "outputPath": "C:\\Becas\\Becas\\obj\\",
+        "projectPath": "C:\\cmder\\Becas\\Becas.csproj",
+        "packagesPath": "C:\\Users\\Equipo 21\\.nuget\\packages\\",
+        "outputPath": "C:\\cmder\\Becas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gamaliel Garcia\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Equipo 21\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -72,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

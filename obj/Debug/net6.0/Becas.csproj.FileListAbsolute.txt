@@ -108,3 +108,13 @@ C:\Becas\obj\Debug\net6.0\refint\Becas.dll
 C:\Becas\obj\Debug\net6.0\Becas.pdb
 C:\Becas\obj\Debug\net6.0\Becas.genruntimeconfig.cache
 C:\Becas\obj\Debug\net6.0\ref\Becas.dll
+C:\cmder\Becas\obj\Debug\net6.0\Becas.csproj.AssemblyReference.cache
+C:\cmder\Becas\obj\Debug\net6.0\Becas.GeneratedMSBuildEditorConfig.editorconfig
+C:\cmder\Becas\obj\Debug\net6.0\Becas.AssemblyInfoInputs.cache
+C:\cmder\Becas\obj\Debug\net6.0\Becas.AssemblyInfo.cs
+C:\cmder\Becas\obj\Debug\net6.0\Becas.csproj.CoreCompileInputs.cache
+C:\cmder\Becas\obj\Debug\net6.0\Becas.MvcApplicationPartsAssemblyInfo.cs
+C:\cmder\Becas\obj\Debug\net6.0\Becas.MvcApplicationPartsAssemblyInfo.cache
+C:\cmder\Becas\obj\Debug\net6.0\Becas.dll
+C:\cmder\Becas\obj\Debug\net6.0\refint\Becas.dll
+C:\cmder\Becas\obj\Debug\net6.0\Becas.pdb

@@ -1,10 +1,8 @@
-using static Becas.ApplicationDbContext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Becas.service;
 using Becas.Models;
 using Microsoft.EntityFrameworkCore;
-
 
 namespace Becas.Controllers
 {
@@ -24,21 +22,16 @@ namespace Becas.Controllers
             return await context.Alumnos.ToListAsync();
         }
         
-     
         [HttpGet("{Id}")]
-    public ActionResult<Alumno> Get(int Id)
-    {
-        var Alumno = context.Get(Id);
+        public async <ActionResult<List<Alumno>>> Get(int Id)
+        {
+            var Alumno = Alumnoservice.Get(Id);
+            if(Alumno == null)
+            
+                return NotFound();
 
-        if(Alumno is not null)
-        {
-            return Alumno;
+                return Alumno;      
         }
-        else
-        {
-            return NotFound();
-        }
-    }
         [HttpPut("{Id}")]
         public async Task<ActionResult> Put(int Id, Alumno alumno)
         {

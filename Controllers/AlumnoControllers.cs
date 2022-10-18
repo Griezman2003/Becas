@@ -23,9 +23,9 @@ namespace Becas.Controllers
         }
         
         [HttpGet("{Id}")]
-        public async <ActionResult<List<Alumno>>> Get(int Id)
+        public ActionResult Get(int Id)
         {
-            var Alumno = Alumnoservice.Get(Id);
+            var Alumno = Get(Id);
             if(Alumno == null)
             
                 return NotFound();

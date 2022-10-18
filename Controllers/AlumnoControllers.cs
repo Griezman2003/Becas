@@ -1,15 +1,15 @@
+using static Becas.ApplicationDbContext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Becas.service;
 using Becas.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Becas.Controllers
 {
     [Route("[Controller]")]
     [ApiController]
-    
-
     public class AlumnoController: ControllerBase
     {
         private readonly ApplicationDbContext context;
@@ -24,27 +24,21 @@ namespace Becas.Controllers
             return await context.Alumnos.ToListAsync();
         }
         
-          [HttpGet("{Id}")]
-        public async Task<ActionResult> Get(int Id, Alumno alumno)
+     
+        [HttpGet("{Id}")]
+    public ActionResult<Alumno> Get(int Id)
+    {
+        var Alumno = context.Get(Id);
+
+        if(Alumno is not null)
         {
-            var Alumno = AlumnoService.Get(id);
-            if(Alumno == null)
-            
-                return NotFound();
-
-                return Alumno;        
+            return Alumno;
         }
-
-
-
-        [HttpPost]
-        public async Task<ActionResult> Post(Alumno alumno){
-            context.Add(alumno);
-            await context.SaveChangesAsync();
-            return Ok();
+        else
+        {
+            return NotFound();
         }
-        
-
+    }
         [HttpPut("{Id}")]
         public async Task<ActionResult> Put(int Id, Alumno alumno)
         {

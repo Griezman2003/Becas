@@ -26,6 +26,13 @@ namespace Becas.Controllers
       public async Task<ActionResult<List<Alumno>>> Get(int Id){
             return await context.Alumnos.ToListAsync();
         }
+        
+        [HttpPost]
+        public async Task<ActionResult> Post(Alumno alumno){
+            context.Add(alumno);
+            await context.SaveChangesAsync();
+            return Ok();
+        }
        
         [HttpPut("{Id}")]
         public async Task<ActionResult> Put(int Id, Alumno alumno)

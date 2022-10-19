@@ -22,16 +22,11 @@ namespace Becas.Controllers
             return await context.Alumnos.ToListAsync();
         }
         
-        [HttpGet("{Id}")]
-        public async <ActionResult<List<Alumno>>> Get(int Id)
-        {
-            var Alumno = Alumnoservice.Get(Id);
-            if(Alumno == null)
-            
-                return NotFound();
-
-                return Alumno;      
+      [HttpGet("{Id}")]
+      public async Task<ActionResult<List<Alumno>>> Get(int Id){
+            return await context.Alumnos.ToListAsync();
         }
+       
         [HttpPut("{Id}")]
         public async Task<ActionResult> Put(int Id, Alumno alumno)
         {

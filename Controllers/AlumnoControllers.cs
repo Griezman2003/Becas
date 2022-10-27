@@ -23,8 +23,17 @@ namespace Becas.Controllers
         }
         
       [HttpGet("{Id}")]
-      public async Task<ActionResult<List<Alumno>>> Get(int Id){
-            return await context.Alumnos.ToListAsync();
+      public async Task<IActionResult> Get(int Id)
+      {
+            var alumno = await context.Alumnos.FindAsync(Id);
+            if (alumno == null)
+            {
+              return NotFound();
+            }
+            else
+            {
+                return Ok(alumno);
+            }
         }
         
         [HttpPost]
